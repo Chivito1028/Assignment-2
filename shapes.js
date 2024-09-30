@@ -23,14 +23,14 @@ let angle = 0.0;
         };
 let sphere = new Sphere(gl,36);
 let mss = new MatrixStack();
-let angle = 25;
+let sangle = 25;
           let render = () {
                   gl.clear(gl.COLOR_BUFFER_BIT);
-                  angle += 5;
-                  angle %= 180;
+                  sangle += 5;
+                  sangle %= 180;
 
                   ms.push();
-                  ms.rotate(angle,[0,1,1]);
+                  ms.rotate(sangle,[0,1,1]);
                   ms.scale(1);
                   cone.mv = ms.current();
                   cone.draw();
@@ -39,6 +39,23 @@ let angle = 25;
                   requestAnimationFrame(render);
   //add initialization code here
 }
+          let sphere = new cone (gl,36);
+let msc = new MatrixStack();
+let cangle = 25;
+          let render = () {
+                  gl.clear(gl.COLOR_BUFFER_BIT);
+                  cangle += 5;
+                  cangle %= 180;
+
+                  ms.push();
+                  ms.rotate(cangle,[0,1,1]);
+                  ms.scale(1);
+                  cone.mv = ms.current();
+                  cone.draw();
+                  ms.pop();
+
+                  requestAnimationFrame(render);
+          }
 function render() {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 // Add rendering code here
